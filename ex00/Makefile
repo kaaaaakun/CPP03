@@ -6,23 +6,23 @@
 #    By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:08:51 by tokazaki          #+#    #+#              #
-#    Updated: 2023/12/17 02:55:07 by tokazaki         ###   ########.fr        #
+#    Updated: 2023/12/13 00:49:42 by tokazaki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex00
 
 # Files & Command +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-SRCS	= $(wildcard *.cpp)
-HEADERS = $(wildcard *.hpp)
+SRCS	= \
+	ClapTrap.cpp \
+	main.cpp
 OBJDIR	= obj
 OBJS    = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DEPENDS	= $(OBJS:.o=.d)
 
 # -- flags --
 CXX 		= c++
-CXXFLAGS	= -Wall -Wextra -Werror
-CXXFLAGS	+= -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 CXXFLAGS	+= -MMD -MP
 
 # -- command --
@@ -49,10 +49,11 @@ fclean: clean
 re: fclean all
 
 # Other targets +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-.PHONY: format
-
-format:
-	clang-format --style=Google -i $(SRCS) $(HEADERS)
+cfile:
+	@ find . -name "*.cpp" | sed 's/\.\///g' \
+		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//' | pbcopy
+	@ echo "\033[32m[COPIED]\033[0m"
 
 -include $(DEPENDS)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+
