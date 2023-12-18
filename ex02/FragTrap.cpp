@@ -8,20 +8,19 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
   std::cout << "FT " << Name_ << " is created" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &other) 
-: ClapTrap(other) {
-	maxHitPoint_ = other.maxHitPoint_;
-	HitPoint_ = other.HitPoint_;
-	EnergyPoint_ = other.EnergyPoint_;
-	AttackDamage_ = other.AttackDamage_;
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
+  maxHitPoint_ = other.maxHitPoint_;
+  HitPoint_ = other.HitPoint_;
+  EnergyPoint_ = other.EnergyPoint_;
+  AttackDamage_ = other.AttackDamage_;
   std::cout << "FT " << Name_ << " is copied" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other) {
-	if (this != &other) {
-		ClapTrap::operator=(other);
-	}
-	return *this;
+  if (this != &other) {
+    ClapTrap::operator=(other);
+  }
+  return *this;
 }
 
 FragTrap::~FragTrap() {
@@ -29,14 +28,14 @@ FragTrap::~FragTrap() {
 }
 
 void FragTrap::highFivesGuys() {
-	if (HitPoint_ == 0) {
-		std::cout << "FT " << Name_ << " is dead" << std::endl;
-		return ;
-	}
-    std::cout << "Hey guys, give me a high five!" << std::endl;
+  if (HitPoint_ == 0) {
+    std::cout << "FT " << Name_ << " is dead" << std::endl;
+    return;
+  }
+  std::cout << "Hey guys, give me a high five!" << std::endl;
 }
 
-void FragTrap::attack(std::string const& target) {
+void FragTrap::attack(std::string const &target) {
   if (HitPoint_ == 0) {
     std::cout << Name_ << " is already dead." << std::endl;
     return;
@@ -46,6 +45,7 @@ void FragTrap::attack(std::string const& target) {
               << std::endl;
     return;
   }
-std::cout << "FT " << Name_ << " attacks, dealing " << AttackDamage_ << " damage to " << target << std::endl;
+  std::cout << "FT " << Name_ << " attacks, dealing " << AttackDamage_
+            << " damage to " << target << std::endl;
   EnergyPoint_--;
 }

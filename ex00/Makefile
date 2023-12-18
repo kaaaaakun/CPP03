@@ -6,7 +6,7 @@
 #    By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:08:51 by tokazaki          #+#    #+#              #
-#    Updated: 2023/12/13 00:49:42 by tokazaki         ###   ########.fr        #
+#    Updated: 2023/12/18 23:49:30 by tokazaki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,9 @@ cfile:
 	@ find . -name "*.cpp" | sed 's/\.\///g' \
 		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//' | pbcopy
 	@ echo "\033[32m[COPIED]\033[0m"
+
+format:
+	clang-format --style=Google -i $(SRCS) $(HEADERS)
 
 -include $(DEPENDS)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
