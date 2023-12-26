@@ -1,5 +1,6 @@
 *.back
 *.o
+*.d
 *.a
 .DS*
 .vscode/
