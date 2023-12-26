@@ -28,7 +28,8 @@ ScavTrap::~ScavTrap() {
 }
 
 void ScavTrap::guardGate() {
-  std::cout << "ScavTrap " << Name_ << " is now in Gatekeeper mode." << std::endl;
+  std::cout << "ScavTrap " << Name_ << " is now in Gatekeeper mode."
+            << std::endl;
 }
 
 void ScavTrap::attack(std::string const &target) {
@@ -37,10 +38,12 @@ void ScavTrap::attack(std::string const &target) {
     return;
   }
   if (EnergyPoint_ < 1) {
-    std::cout << "ScavTrap " << "Cannot attack. " << Name_ << " has insufficient energy."
+    std::cout << "ScavTrap "
+              << "Cannot attack. " << Name_ << " has insufficient energy."
               << std::endl;
     return;
   }
-  std::cout << "ScavTrap " << Name_ << " attacks " << target << ", causing " << AttackDamage_ << "points of damage!" << std::endl;
+  std::cout << "ScavTrap " << Name_ << " attacks " << target << ", causing "
+            << AttackDamage_ << "points of damage!" << std::endl;
   EnergyPoint_--;
 }

@@ -35,7 +35,8 @@ void FragTrap::highFivesGuys() {
     return;
   }
   if (EnergyPoint_ <= 0) {
-    std::cout << "FragTrap " << Name_ << " has insufficient energy." << std::endl;
+    std::cout << "FragTrap " << Name_ << " has insufficient energy."
+              << std::endl;
     return;
   }
   std::cout << "FragTrap " << Name_ << "high five guys." << std::endl;
@@ -47,10 +48,12 @@ void FragTrap::attack(std::string const &target) {
     return;
   }
   if (EnergyPoint_ < 1) {
-    std::cout << "FragTrap " << "Cannot attack. " << Name_ << " has insufficient energy."
+    std::cout << "FragTrap "
+              << "Cannot attack. " << Name_ << " has insufficient energy."
               << std::endl;
     return;
   }
-    std::cout << "FragTrap " << Name_ << " attacks " << target << ", causing " << AttackDamage_ << "points of damage!" << std::endl;
+  std::cout << "FragTrap " << Name_ << " attacks " << target << ", causing "
+            << AttackDamage_ << "points of damage!" << std::endl;
   EnergyPoint_--;
 }

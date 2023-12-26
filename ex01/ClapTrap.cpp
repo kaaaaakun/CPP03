@@ -36,11 +36,13 @@ void ClapTrap::attack(const std::string &target) {
     return;
   }
   if (EnergyPoint_ < 1) {
-    std::cout << "ClapTrap " << "cannot attack. " << Name_ << " has insufficient energy."
+    std::cout << "ClapTrap "
+              << "cannot attack. " << Name_ << " has insufficient energy."
               << std::endl;
     return;
   }
-  std::cout << "ClapTrap " << Name_ << " attacks " << target << ", causing " << AttackDamage_ << "points of damage!" << std::endl;
+  std::cout << "ClapTrap " << Name_ << " attacks " << target << ", causing "
+            << AttackDamage_ << "points of damage!" << std::endl;
   EnergyPoint_--;
 }
 
@@ -51,7 +53,8 @@ void ClapTrap::takeDamage(unsigned int amount) {
   }
   unsigned int damage = (HitPoint_ < amount) ? HitPoint_ : amount;
 
-  std::cout << "ClapTrap " << Name_ << " takes " << damage << " damage." << std::endl;
+  std::cout << "ClapTrap " << Name_ << " takes " << damage << " damage."
+            << std::endl;
   HitPoint_ -= damage;
   if (HitPoint_ == 0) {
     std::cout << Name_ << " has died." << std::endl;
@@ -60,8 +63,8 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if (EnergyPoint_ < 1) {
-    std::cout << "ClapTrap cannot repaired. " << Name_ << " has insufficient energy."
-              << std::endl;
+    std::cout << "ClapTrap cannot repaired. " << Name_
+              << " has insufficient energy." << std::endl;
     return;
   }
   if (HitPoint_ == 0) {
@@ -73,12 +76,12 @@ void ClapTrap::beRepaired(unsigned int amount) {
     return;
   }
   if (maxHitPoint_ <= HitPoint_ + amount) {
-    std::cout << "ClapTrap " << Name_ << " is repaired for " << maxHitPoint_ - HitPoint_
-              << " points." << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is repaired for "
+              << maxHitPoint_ - HitPoint_ << " points." << std::endl;
     HitPoint_ = maxHitPoint_;
   } else {
-    std::cout << "ClapTrap " << Name_ << " is repaired for " << amount << " points."
-              << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is repaired for " << amount
+              << " points." << std::endl;
     HitPoint_ += amount;
   }
   EnergyPoint_--;

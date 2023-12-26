@@ -14,7 +14,7 @@ void performActionsFrag1() {
 void performActionsFrag2() {
   FragTrap frag("Frag2");
   frag.takeDamage(99);
-  for (int i = 0; i < 102; i+=2) {
+  for (int i = 0; i < 102; i += 2) {
     std::cout << i << " : ";
     frag.attack("Enemy");
     std::cout << i + 1 << " : ";
