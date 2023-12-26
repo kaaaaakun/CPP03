@@ -32,27 +32,26 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 
 void ClapTrap::attack(const std::string &target) {
   if (HitPoint_ == 0) {
-    std::cout << Name_ << " is already dead." << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is already dead." << std::endl;
     return;
   }
   if (EnergyPoint_ < 1) {
-    std::cout << "Cannot attack. " << Name_ << " has insufficient energy."
+    std::cout << "ClapTrap " << "cannot attack. " << Name_ << " has insufficient energy."
               << std::endl;
     return;
   }
-  std::cout << Name_ << " attacks, dealing " << AttackDamage_ << " damage to "
-            << target << std::endl;
+  std::cout << "ClapTrap " << Name_ << " attacks " << target << ", causing " << AttackDamage_ << "points of damage!" << std::endl;
   EnergyPoint_--;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
   if (HitPoint_ == 0) {
-    std::cout << Name_ << " is already dead." << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is already dead." << std::endl;
     return;
   }
   unsigned int damage = (HitPoint_ < amount) ? HitPoint_ : amount;
 
-  std::cout << Name_ << " takes " << damage << " damage." << std::endl;
+  std::cout << "ClapTrap " << Name_ << " takes " << damage << " damage." << std::endl;
   HitPoint_ -= damage;
   if (HitPoint_ == 0) {
     std::cout << Name_ << " has died." << std::endl;
@@ -61,24 +60,24 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if (EnergyPoint_ < 1) {
-    std::cout << "Cannot attack. " << Name_ << " has insufficient energy."
+    std::cout << "ClapTrap cannot repaired. " << Name_ << " has insufficient energy."
               << std::endl;
     return;
   }
   if (HitPoint_ == 0) {
-    std::cout << Name_ << " is already dead." << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is already dead." << std::endl;
     return;
   }
   if (maxHitPoint_ == HitPoint_) {
-    std::cout << Name_ << " is fully repaired" << std::endl;
+    std::cout << "ClapTrap " << Name_ << " is fully repaired" << std::endl;
     return;
   }
   if (maxHitPoint_ <= HitPoint_ + amount) {
-    std::cout << Name_ << " is repaired for " << maxHitPoint_ - HitPoint_
+    std::cout << "ClapTrap " << Name_ << " is repaired for " << maxHitPoint_ - HitPoint_
               << " points." << std::endl;
     HitPoint_ = maxHitPoint_;
   } else {
-    std::cout << Name_ << " is repaired for " << amount << " points."
+    std::cout << "ClapTrap " << Name_ << " is repaired for " << amount << " points."
               << std::endl;
     HitPoint_ += amount;
   }
