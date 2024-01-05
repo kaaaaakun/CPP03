@@ -17,7 +17,7 @@
 #include <iostream>
 
 class ClapTrap {
- protected:
+  private:
   std::string Name_;
   unsigned int maxHitPoint_;
 
